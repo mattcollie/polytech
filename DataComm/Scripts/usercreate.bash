@@ -30,7 +30,7 @@ function _add_user {
         echo "[EXISTS] user: ${user}"        
     else
         echo "[ADDING] user: ${user}"
-        useradd "${user_name}"
+        useradd -c "${user}" "${user_name}"
     fi
 }
 
@@ -82,25 +82,54 @@ function _set_inactive {
     fi
 }
 
+function _read_data {
+    declare -a users_added=()
+    while read line
+    do
+        #echo "${users_added[@]}"
+        first=$(echo $line | awk 'BEGIN {FS=","} {printf("%-12s",$3)}' | tr -d '[:space:]')
+        last=$(echo $line | awk 'BEGIN {FS=","} {printf("%-12s",$4)}' | tr -d '[:space:]')
+        first_and_last="${first} ${last}"
+        if [[ ! "${users_added[@]}" =~ "${first_and_last}" ]]; then
+            # new user
+            users_added+=("$first_and_last")
+            echo $first_and_last
+            _setup_user "${first_and_last}"
+        fi
+        # data=$(echo $line | awk 'BEGIN {FS=","} {printf("Title:%-5s First:%-12s Last:%-12s Acct:%-8s\n",$2,$3,$4,$9)}')
+        # echo $data
+    done;
+}
+
+function _setup_user {
+    user="${1}"
+    _add_user "${user}"
+    _set_password "${user}"
+}
+
 # main function
 function main {
-    declare -a users_to_add=( "carol smith" "david clive" "fred blue" "frank bart" "helen bloggs" "betty cross" )
-    declare -a users_to_unlock=( "helen bloggs" "fred blue" "betty cross" )
-    declare -a users_to_expire=( "carol smith" "david clive" "fred blue" "frank bart" )
     
-    for user in "${users_to_add[@]}"
-    do
-        # _delete_user "${user}"
-        _add_user "${user}"
-        _set_password "${user}"
-        if [[ ! " ${users_to_unlock[@]} " =~ " ${user} " ]]; then
-            _unblock_user "${user}"
-        fi
+    cat data.txt | _read_data
+    #| awk 'BEGIN {FS=","} {printf("Title:%-5s First:%-12s Last:%-12s Acct:%-8s\n",$2,$3,$4,$9)}' #| _read_data
+    
+    # declare -a users_to_add=( "carol smith" "david clive" "fred blue" "frank bart" "helen bloggs" "betty cross" )
+    # declare -a users_to_unlock=( "helen bloggs" "fred blue" "betty cross" )
+    # declare -a users_to_expire=( "carol smith" "david clive" "fred blue" "frank bart" )
+    
+    # for user in "${users_to_add[@]}"
+    # do
+        # # _delete_user "${user}"
+        # _add_user "${user}"
+        # _set_password "${user}"
+        # if [[ " ${users_to_unlock[@]} " =~ " ${user} " ]]; then
+            # _unblock_user "${user}"
+        # fi
         
-        if [[ ! " ${users_to_expire[@]} " =~ " ${user} " ]]; then
-            _set_expirey "${user}"
-            _set_inactive "${user}"
-        fi
-    done
+        # if [[ " ${users_to_expire[@]} " =~ " ${user} " ]]; then
+            # _set_expirey "${user}"
+            # _set_inactive "${user}"
+        # fi
+    # done
 }
 main

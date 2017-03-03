@@ -1,0 +1,46 @@
+1,Mr,Adam,Abbott,A,10 flood street,Wellington,4100987,11223340,Laptop,Compaq,5400,,,Laser,Lexmark,1500
+2,Mr,Adam,Abbott,A,10 flood street,Wellington,4100987,11223340,Desktop,Bell,2500,SVGA,Toshiba,Inkjet,Lexmark,600
+3,Mr,Arnold ,Abraham,H,25 lost street,Tauranga,2221121,11223341,Desktop,Toshiba,2800,SVGA,Syncmaster,Inkjet,Lexmark,550
+4,Mr,Allen,Act,J,15 Nowhere Lane,Gisborne,9121122,11223342,Laptop,Compaq,4300,,Sony,Inkjet,Lexmark,550
+5,Mr,Adam,Boot,T,1075 Endless Road,Tauranga,2221123,11223343,Laptop,Acer,2900,,Hitachi,Inkjet,ALP's,590
+6,Mr,Ian,Cross,G,1024 Not-here Street,Taupo,3321124,11223344,Server,IBM,9000,SVGA,Syncmaster,Inkjet,Epson,590
+7,Mr,Fred ,Bloggs,J,10 East street,Tauranga,2221127,11223347,Server,IBM,10500,SVGA,Syncmaster,Laser,Lexmark,900
+8,Miss,Betty,Lou,E,68 Opera Lane,Wellington,4102356,11223352,Server,Bell,9000,SVGA,Toshiba,Laser,Lexmark,900
+9,Mr,Fred,Builder,M,100 New-HousePlace,Gisborne,9121134,11223354,Desktop,IBM,3500,SVGA,Syncmaster,Laser,Lexmark,1000
+10,Mr,Martin,Bluster,L,457 Cookhouse Lane,Tauranga,2221136,11223356,Desktop,Compaq,2800,SVGA,Syncmaster,Inkjet,Epson,700
+11,Miss,Pam,Abbott,C,77 Links road,Taupo,3321137,11223357,Laptop,IBM,3500,,Sony,Laser,Epson,1300
+12,Mr,Andrew,Baker,M,3 Short Lane,Tauranga,2221138,11223358,Laptop,Compaq,3400,,Syncmaster,Inkjet,ALP's,600
+13,Mr,Andy,Zapper,,200 Live-wire place,Tauranga,2221139,11223359,Laptop,Toshiba,3500,,Sony,Inkjet,ALP's,550
+14,Mr,Alfred,Xerox,T,900 Photocopy Lane,Rotorua,4581998,11223360,Desktop,Toshiba,2900,SVGA,Viewsonic,Laser,Lexmark,890
+15,Mrs,Helen,Arts,S,121 Wilson road,Gisborne,9121141,11223361,Server,Compaq,9800,SVGA,Syncmaster,Laser,ALP's,999
+16,Mr,Brett,Mott,C,65 Waihi road,Taupo,3321112,11223362,Server,Compaq,9800,SVGA,Sony,,,
+17,Mr,Brett,Mott,C,65 Waihi road,Taupo,3321142,11223362,Desktop,Toshiba,5400,SVGA,Toshiba,,,
+18,Mr,Brett,Mott,C,65 Waihi road,Taupo,3321142,11223362,Server,IBM,9999,SVGA,Syncmaster,Laser,Lexmark,800
+19,Ms,Aztec,Wilson,A,64 Pyramid Lane,Taupo,3321143,11223363,Laptop,Compaq,4500,,Syncmaster,Laser,Epson,1500
+20,Mr,Benjamin,Scrubb,C,300 Links road,Tauranga,2221145,11223365,Desktop,Toshiba,3000,SVGA,Syncmaster,Laser,Epson,1300
+21,Mr,Alfred,Baker,P,67 Cookhouse Lane,Tauranga,2221146,11223366,Laptop,Compaq,5000,,Syncmaster,Inkjet,ALP's,900
+22,Mr,Barny,Scrubb,N,300 Links road,Gisborne,9121147,11223367,Desktop,Toshiba,2500,SVGA,Sony,Inkjet,Epson,800
+23,Mr,Barny,Scrubb,N,300 Links road,Gisborne,9121147,11223367,Desktop,Toshiba,3500,SVGA,,,,
+24,Mr,Barny,Scrubb,N,300 Links road,Gisborne,9121147,11223367,Desktop,Toshiba,4400,SVGA,Sony,Inkjet,Epson,700
+25,Mr,Martin,Baxter,K,33 lost street,Taupo,3321148,11223368,Desktop,Bell,2900,SVGA,Viewsonic,Inkjet,Lexmark,600
+26,Mr,Benny,Hill,D,303 Funny-Farm Road,Taupo,3321149,11223369,Desktop,IBM,3000,SVGA,Sony,Laser,Epson,1300
+27,Miss,Bette,Baxter,O,39 Found street,Tauranga,2221150,11223370,Desktop,Compaq,2000,VGA,Toshiba,Laser,Lexmark,1200
+28,Mr,Benjamin,Fault,B,202 Farm Road,Tauranga,2221151,11223371,Laptop,Toshiba,4500,,Sony,Laser,Lexmark,1500
+29,Mrs,Amy,Bart,G,101 Digital lane,Sky,6784342,11223372,Laptop,Compaq,5500,,,,,
+30,Miss,Helen,Cross,C,111 Hotrod lane,Howick,3578898,11223373,Desktop,Toshiba,3500,SVGA,Toshiba,Laser,Epson,750
+31,Miss,Helen,Cross,C,111 Hotrod lane,Howick,3578898,11223374,Server,IBM,10000,XVGA,Sony,,,
+32,Mr,Barry,Lot,,34 High Street,New Plymouth,5648971,11223375,Mini,Cray,88000,XVGA,Sony,,,
+33,Mr,Fred,Dagg,A,101Gumboot Lane,Rotorua,4589714,11223376,Desktop,Toshiba,3800,SVGA,Syncmaster,Laser,Epson,999
+34,Miss,Jane,Frog,,66 Slow Street,Dunedin,9876541,11223377,Laptop,Compaq,4000,,,,,
+35,Mr,Albert,Red,E,44 Symonds Ave,Whakatane,3256894,11223378,Desktop,Toshiba,4800,SVGA,Toshiba,,,
+36,Mrs,Melissa,Haughton,X,45 Lots Rd,Invercargil,8897452,11223379,Server,IBM,9000,XVGA,Sony,,,
+37,Miss,Susan,Blue,D,901 Wests Rd,Invercargil,8852346,11223380,Desktop,Compaq,4500,SVGA,Sony,Laser,Lexmark,1000
+38,Miss,Susan,Blue,D,901 Wests Rd,Invercargil,8852346,11223380,Desktop,Compaq,5500,SVGA,,,,
+39,Miss,Susan,Blue,D,901 Wests Rd,Invercargil,8852346,11223380,Desktop,Compaq,5400,SVGA,,,,
+40,Miss,Carol,Card,,45 15th ave west,Tauranga,2298456,11223381,Desktop,Toshiba,5500,SVGA,Toshiba,Laser,Epson,1100
+41,Miss,Jane,Clive,J,13 West St,Tauranga,5443678,11223385,Desktop,Toshiba,6600,SVGA,Toshiba,Laser,Epson,1500
+42,Mr,David,Smith,A,14 West Street,Tauranga,4433567,11223382,Desktop,Compaq,5500,SVGA,Compaq,Laser,Toshiba,1600
+43,Mr,David,Smith,B,76 North Street,Tauranga,3567896,11223383,Server,IBM,9985,SVGA,HP,Laser,Toshiba,1900
+44,Mr,David,Smith,C,101 South Street,Tauranga,4433587,11223384,Server,IBM,5500,SVGA,HP,Laser,Epsom,1855
+45,Mr,David,Smith,C,101 South Street,Tauranga,4433587,11223385,Desktop,Toshiba,6665,SVGA,HP,Laser,Epsom,1700
+46,Mr,David,Smith,C,200 East Street,Tauranga,4785643,11223386,Server,IBM,5655,SVGA,Sony,Laser,Toshiba,1899
