@@ -5,15 +5,15 @@ declare EXPIREY_DATE="2017-11-30"
 declare -i INACTIVE_DAYS=3
 
 # create shorthand username
-function format_username {
+function _format_username {
     fullname=($@)
     echo "${fullname[0]}${fullname[1]:0:1}"
 }
 
 # deletes user
-function delete_user {
+function _delete_user {
     user="${@}"
-    user_name="$(format_username ${user})"
+    user_name="$(_format_username ${user})"
     if id "${user_name}" >/dev/null 2>&1 ; then
         echo "[DELETING] user: ${user}"
         userdel "${user_name}"
@@ -23,9 +23,9 @@ function delete_user {
 }
 
 # adds user
-function add_user {
+function _add_user {
     user="${@}"
-    user_name="$(format_username ${user})"
+    user_name="$(_format_username ${user})"
     if id "${user_name}" >/dev/null 2>&1 ; then
         echo "[EXISTS] user: ${user}"        
     else
@@ -35,9 +35,9 @@ function add_user {
 }
 
 # sets user password
-function set_password {
+function _set_password {
     user="${@}"
-    user_name="$(format_username ${user})"
+    user_name="$(_format_username ${user})"
     if id "${user_name}" >/dev/null 2>&1 ; then
         echo "[PASSWORD] user: ${user}"
         usermod "${user_name}" -p "${DEFAULT_PASSWORD}"
@@ -47,9 +47,9 @@ function set_password {
 }
 
 # unblocks user
-function unblock_user {
+function _unblock_user {
     user="${@}"
-    user_name="$(format_username ${user})"
+    user_name="$(_format_username ${user})"
     if id "${user_name}" >/dev/null 2>&1 ; then
         echo "[UNBLOCK] user: ${user}"
         passwd "${user_name}" -u
@@ -59,9 +59,9 @@ function unblock_user {
 }
 
 # sets expirey conditions of users
-function set_expirey {
+function _set_expirey {
     user="${@}"
-    user_name="$(format_username ${user})"
+    user_name="$(_format_username ${user})"
     if id "${user_name}" >/dev/null 2>&1 ; then
         echo "[EXPIRE] user: ${user}"
          usermod "${user_name}" -e "${EXPIREY_DATE}"
@@ -71,9 +71,9 @@ function set_expirey {
 }
 
 # sets inactive conditions of users
-function set_inactive {
+function _set_inactive {
     user="${@}"
-    user_name="$(format_username ${user})"
+    user_name="$(_format_username ${user})"
     if id "${user_name}" >/dev/null 2>&1 ; then
         echo "[INACTIVE] user: ${user}"
          usermod "${user_name}" -f "${INACTIVE_DAYS}"
@@ -82,24 +82,24 @@ function set_inactive {
     fi
 }
 
+# main function
 function main {
     declare -a users_to_add=( "carol smith" "david clive" "fred blue" "frank bart" "helen bloggs" "betty cross" )
     declare -a users_to_unlock=( "helen bloggs" "fred blue" "betty cross" )
     declare -a users_to_expire=( "carol smith" "david clive" "fred blue" "frank bart" )
     
-    # adds users and sets passwords
     for user in "${users_to_add[@]}"
     do
-        # delete_user "${user}"
-        add_user "${user}"
-        set_password "${user}"
+        # _delete_user "${user}"
+        _add_user "${user}"
+        _set_password "${user}"
         if [[ ! " ${users_to_unlock[@]} " =~ " ${user} " ]]; then
-            unblock_user "${user}"
+            _unblock_user "${user}"
         fi
         
         if [[ ! " ${users_to_expire[@]} " =~ " ${user} " ]]; then
-            set_expirey "${user}"
-            set_inactive "${user}"
+            _set_expirey "${user}"
+            _set_inactive "${user}"
         fi
     done
 }
