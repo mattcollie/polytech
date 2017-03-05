@@ -1,7 +1,7 @@
 #!/bin/bash
 
-declare DEFAULT_PASSWORD="123"
-declare EXPIREY_DATE="2017-11-30"
+declare DEFAULT_COMMENT="script-users"
+declare EXPIREY_DATE="2017-12-10"
 declare -i INACTIVE_DAYS=3
 
 # create shorthand username
@@ -30,7 +30,7 @@ function _add_user {
         echo "[EXISTS] user: ${user}"        
     else
         echo "[ADDING] user: ${user}"
-        useradd -c "${user}" "${user_name}"
+        useradd -c "${DEFAULT_COMMENT}" "${user_name}"
     fi
 }
 
@@ -40,7 +40,7 @@ function _set_password {
     user_name="$(_format_username ${user})"
     if id "${user_name}" >/dev/null 2>&1 ; then
         echo "[PASSWORD] user: ${user}"
-        usermod "${user_name}" -p "${DEFAULT_PASSWORD}"
+        usermod "${user_name}" -p "${user_name}9"
     else
         echo "[ERROR] user: ${user}, does not exist"
     fi
@@ -110,7 +110,7 @@ function _setup_user {
 # main function
 function main {
     
-    cat data.txt | _read_data
+    cat data.txt | sort | uniq | _read_data
     #| awk 'BEGIN {FS=","} {printf("Title:%-5s First:%-12s Last:%-12s Acct:%-8s\n",$2,$3,$4,$9)}' #| _read_data
     
     # declare -a users_to_add=( "carol smith" "david clive" "fred blue" "frank bart" "helen bloggs" "betty cross" )
