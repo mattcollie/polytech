@@ -93,8 +93,9 @@ function _read_data {
         if [[ ! "${users_added[@]}" =~ "${first_and_last}" ]]; then
             # new user
             users_added+=("$first_and_last")
-            echo $first_and_last
+            #echo "${first_and_last}" # >>mynamelist2
             _setup_user "${first_and_last}"
+            echo ""
         fi
         # data=$(echo $line | awk 'BEGIN {FS=","} {printf("Title:%-5s First:%-12s Last:%-12s Acct:%-8s\n",$2,$3,$4,$9)}')
         # echo $data
@@ -102,34 +103,24 @@ function _read_data {
 }
 
 function _setup_user {
-    user="${1}"
-    _add_user "${user}"
-    _set_password "${user}"
+    local n=""
+    local user=$1; shift
+    local user_name="$(_format_username ${user})"
+	
+    # does user exists?
+    while id "${user_name}${n}" >/dev/null 2>&1 ; do
+        n=$[n+1]; continue;
+    done;
+    
+    echo "${user_name}${n}"
+    # _add_user "${user}"
+    # _set_password "${user}"
 }
 
 # main function
 function main {
-    
-    cat data.txt | sort | uniq | _read_data
-    #| awk 'BEGIN {FS=","} {printf("Title:%-5s First:%-12s Last:%-12s Acct:%-8s\n",$2,$3,$4,$9)}' #| _read_data
-    
-    # declare -a users_to_add=( "carol smith" "david clive" "fred blue" "frank bart" "helen bloggs" "betty cross" )
-    # declare -a users_to_unlock=( "helen bloggs" "fred blue" "betty cross" )
-    # declare -a users_to_expire=( "carol smith" "david clive" "fred blue" "frank bart" )
-    
-    # for user in "${users_to_add[@]}"
-    # do
-        # # _delete_user "${user}"
-        # _add_user "${user}"
-        # _set_password "${user}"
-        # if [[ " ${users_to_unlock[@]} " =~ " ${user} " ]]; then
-            # _unblock_user "${user}"
-        # fi
-        
-        # if [[ " ${users_to_expire[@]} " =~ " ${user} " ]]; then
-            # _set_expirey "${user}"
-            # _set_inactive "${user}"
-        # fi
-    # done
+    # scp linuxclass@www.bcs.net.nz:d2 .
+    #cat d2 | grep -v TITLE | tr [A-Z] [a-z] | awk 'BEGIN {FS=","} {printf("%.5s%.1s\n",$3,$4)}' | sort | uniq >mynamelist
+    cat d2 | grep -v TITLE | tr [A-Z] [a-z] | _read_data
 }
 main
